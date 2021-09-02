@@ -22,7 +22,6 @@ app.use(bodyParser.json());
 app.get("/", (req, res) => res.send("essa é a home"));
 
 app.get("/cad", (req,res) => {
-    //res.send("rota de cadastro");
     res.render("formulario");
 });
 
@@ -34,7 +33,7 @@ app.post("/add", (req,res) => {
     }).then(() => {
       res.send("Post criado com sucesso!");  
     }).catch((erro) => {
-        res.send(`Houve um erro ${erro}`)
+        res.send(`Houve um erro ${erro}`);
     });
 })
 
