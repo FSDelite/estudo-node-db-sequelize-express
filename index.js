@@ -56,17 +56,18 @@ app.get("/delete/:id", (req, res) => {
 // app.get("/update/:id", (req, res) => {
 //     res.render("updateForm");
 // });
-app.get("/up", (req, res) => res.render("updateForm"));
+app.get("/up/:id", (req, res) => res.render("updateForm",{id: req.params.id}));
 
 
-app.get("/update", (req, res) => {
+app.post("/update", (req, res) => {
     Post.update({
         titulo: req.body.titulo,
         conteudo: req.body.conteudo
     }, {
         where: { 'id': req.body.id, }
     }).then(() => {
-        Post.update
+        Post.update;
+        res.redirect("/");
     }).catch((erro) => {
         res.send(`Houve um erro ${erro}`);
     });
